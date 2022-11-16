@@ -2,15 +2,20 @@
   "name": "@manvfx/super-react-dialog",
   "version": "1.0.0",
   "description": "A Dialog React Form Dynamic",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
-    "build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
   "repository": {
     "type": "git",
@@ -29,6 +34,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/lab": "^5.0.0-alpha.108",
     "@mui/material": "^5.10.14",
+    "@size-limit/preset-small-lib": "^8.1.0",
     "formik": "^2.2.9",
     "formik-mui": "^5.0.0-alpha.0",
     "formik-mui-lab": "^1.0.0",
@@ -39,5 +45,16 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.4.1",
     "yup": "^0.32.11"
-  }
+  },
+  "module": "dist/super-react-dialog.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/super-react-dialog.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/super-react-dialog.esm.js",
+      "limit": "10 KB"
+    }
+  ]
 }
