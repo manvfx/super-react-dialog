@@ -14,8 +14,8 @@ import {
   DialogProps,
   DialogTitle,
   DialogTitleProps,
-  makeStyles,
 } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import {
   Field,
   FieldAttributes,
@@ -149,7 +149,11 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-export const DialogProvider: React.FC = ({ children }) => {
+interface DialogMyProps {
+  children?: React.ReactNode;
+}
+
+export const DialogProvider: React.FC<DialogMyProps> = (props) => {
   // The warning [Warning: findDOMNode is deprecated in StrictMode.] is a known issue:
   // https://stackoverflow.com/a/63729408
   const classes = useStyles();
@@ -202,7 +206,7 @@ export const DialogProvider: React.FC = ({ children }) => {
 
   return (
     <DialogContext.Provider value={{ openDialog, closeDialog }}>
-      {children}
+      {props.children}
       //onExited
       <Dialog open={open} onClose={handleExited} {...dialogProps}>
         {customContent ? (
