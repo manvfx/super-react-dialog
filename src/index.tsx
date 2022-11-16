@@ -207,7 +207,6 @@ export const DialogProvider: React.FC<DialogMyProps> = (props) => {
   return (
     <DialogContext.Provider value={{ openDialog, closeDialog }}>
       {props.children}
-      //onExited
       <Dialog open={open} onClose={handleExited} {...dialogProps}>
         {customContent ? (
           customContent

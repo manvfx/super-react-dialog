@@ -1,7 +1,7 @@
 {
   "name": "@manvfx/super-react-dialog",
-  "version": "1.0.0",
-  "description": "A Dialog React Form Dynamic",
+  "version": "1.0.1",
+  "description": "A Dialog Form React Dynamic",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manvfx/superform.git"
+    "url": "git+https://github.com/manvfx/super-react-dialog.git"
   },
   "author": "Mohammad Amin Najafi",
   "license": "MIT",
